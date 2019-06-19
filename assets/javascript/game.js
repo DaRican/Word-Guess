@@ -81,7 +81,7 @@ $(document).ready(function () {
 
 function gameStart() {
     $("body").keyup(function (event) {
-        console.log(event.key);
+
         keyPressed = event.key;
         $('<div/>', {
             id: 'displayChosen',
@@ -89,7 +89,7 @@ function gameStart() {
         }).appendTo('#gameBox');
 
 
-        $('#displayChosen').text('You have hit the letter' + keyPressed + ' ');
+        $('#displayChosen').text('You have hit the letter ' + keyPressed + ' ');
         $("#gameBox").append()
 
 

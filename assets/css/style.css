@@ -1,5 +1,28 @@
-#gameBox {
+header{
+    border: 2px solid brown;
+    height 300px;
+    width: 50%;
+    font-size: 20px;
+    text-align: center;
+    margin: 0 auto;
+
+}
+
+
+
+#gameBox{
+    position: relative;
+    border: 1px solid black;
     font-size: 24px;
     font-weight: bolder;
-    
+/* why cant height do percantage value? */
+    height: 900px;
+    width: 450px;
+    text-align: center;
+}
+
+#displayChosen{
+
+    margin: 45px;
+
 }
