@@ -1,6 +1,6 @@
 header{
     border: 2px solid brown;
-    height 300px;
+    height: 100px;
     width: 50%;
     font-size: 20px;
     text-align: center;
@@ -18,11 +18,40 @@ header{
 /* why cant height do percantage value? */
     height: 900px;
     width: 450px;
-    text-align: center;
+    
 }
 
 #displayChosen{
 
     margin: 45px;
 
+}
+
+#scoreBoard{
+
+    text-align: left;
+    margin: 0px;
+    float: left;
+    height: 75px;
+    width: 80%;
+    
+
+}
+
+.scoreKeep{
+    
+    margin: 40px;
+    height: 200px;
+    width: 80%;
+    font-weight: bolder;
+    font-style: italic;
+    border-style: ridge;
+    
+}
+
+span{
+    margin-left: 60px;
+    letter-spacing: 5px;
+    font-size: 70px;
+    text-align: center;
 }

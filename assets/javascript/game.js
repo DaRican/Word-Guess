@@ -1,116 +1,160 @@
-// Array holds all of the baseball terms available
-var terms = [
-    'ace',
-    'beanball',
-    'brushback',
-    'cheese',
-    'comebacker',
-    'double',
-    'triple',
-    'single',
-    'moonshot',
-    'balk',
-    'cycle',
-];
-
-// Choose a random word from terms Array
-
-randWord = terms[Math.floor(Math.random() * terms.length)];
-
-// Function to print out blank spaces in place of the random word chosen
-
-
-function blankText() {
-    randWord = terms[Math.floor(Math.random() * terms.length)];
-    underScore = " ";
-    for (i = 0; i < randWord.length; i++) {
-        underscore = underscore = "_";
-    }
-}
-
-//Function to throw the bankText function results into the #blankGuessWord div
-
-function gameplay() {
-    var randWordDiv = $("#bbTerms");
-    var randWordDiv = $("#blankGuessWord");
-    var randNumber = Math.floor(Math.random() * terms.length);
-    randWord = terms[randNumber];
-    randWordDiv.append(randWord);
-    blankText = blankText();
-
-
-
-
-
-    $('<span/>', {
-        id: 'blankGuessWord',
-        class: 'nameLater',
-    }).appendTo('#bbTerms');
-
-
-
-    console.log(randWord);
-
-
-    for (var i = 0; i < randWord.length; i++) {
-        $("#blankGuessWord").append(" " + "_" + " ");
-    }
-
-    $('<div>', {
-        id: 'guessingArea',
-        class: "nameLater"
-    })
-
-    var $input = $('#guessingArea');
-
-
-
-
-}
-
-gameplay();
-
 $(document).ready(function () {
-    $("body").keyup(function (event) {
+
+    // Array holds all of the baseball terms available
+    var terms = [
+        'ace',
+        'beanball',
+        'brushback',
+        'cheese',
+        'pickoff',
+        'double',
+        'triple',
+        'single',
+        'moonshot',
+        'balk',
+        'cycle',
+    ];
+
+    // Choose a random word from terms Array
+    var rightLetter = [];
+    var wrongLetter = [];
+    var lettersPressed = [];
+    var randWord = terms[Math.floor(Math.random() * terms.length)];
+
+
+    // Let the letter pressed be store in a variable called keyPressed
+
+
+    var keyPressed = $("body").keyup(function (event) {
         console.log(event.key);
         keyPressed = event.key
     });
-});
 
-//Randon function to check and show on the screen what letter was pressed
-
-function gameStart() {
-    $("body").keyup(function (event) {
-
-        keyPressed = event.key;
-        $('<div/>', {
-            id: 'displayChosen',
-            class: 'nameLater',
-        }).appendTo('#gameBox');
-
-
-        $('#displayChosen').text('You have hit the letter ' + keyPressed + ' ');
-        $("#gameBox").append()
+    // Function to print out blank spaces in place of the random word chosen
 
 
 
-    });
-
-}
-
-gameStart();
 
 
+    /*
 
-function findLetter() {
+                GAME PLAY FUNCTION 
+                WITH INSIDE FUNCTION
+
+                
+    */
+
+    function gameplay() {
 
 
-    var str = randWord,
-        re = //g,
-            match;
-    while (match = re.exec(str)) {
-        console.log(match.index); // logs 1 through 9
+        var randWordDiv = $("#underscore");
+        var randWordDiv = $("#blankGuessWord");
+
+        randWord = terms[Math.floor(Math.random() * terms.length)];
+
+        console.log(randWord);
+        var indexReplace;
+
+        /* 
+        
+                    UNDERSCORE VISUAL SHOWING HIDDEN LETTERS
+        
+        */
+
+        var underScore = [];
+
+        function generateUnderScore() {
+            var underScore = [];
+
+            $('<span/>', {
+                id: 'blankGuessWord',
+                class: 'nameLater',
+            }).appendTo('#underscore');
+
+            for (var i = 0; i < randWord.length; i++) {
+
+
+                underScore.push("_");
+                $("#blankGuessWord").append(underScore);
+
+
+            }
+            return underScore;
+        }
+
+        generateUnderScore();
+        console.log(generateUnderScore());
+
+
+
+
+
+
+
+
+
+
+        $("body").keyup(function (event) {
+
+            keyPressed = event.key;
+            $('<div/>', {
+                id: 'displayChosen',
+                class: 'nameLater',
+            }).appendTo('#lettersPressedContainer');
+
+
+            $('#displayChosen').text('You have hit the letter ' + keyPressed + ' ');
+            $("#lettersPressedContainer ").append()
+
+            if (randWord.indexOf(keyPressed) > -1) {
+                rightLetter.push(keyPressed);
+                console.log("right letter pushed: " + rightLetter);
+                $('<div/>', {
+                    id: 'rightLetters',
+                    class: 'nameLater',
+
+                });
+                $("#rightLetters").text(rightLetter);
+                $("rightAnswerContainer").append('#rightLetters');
+
+                console.log(randWord.indexOf(keyPressed))
+
+
+
+
+            } else {
+                wrongLetter.push(keyPressed);
+                console.log("wrong letter pushed: " + wrongLetter);
+                ('<div/>', {
+                    id: 'wrongLetters',
+                    class: 'nameLater',
+                });
+                $("#wrongLetters").text(wrongLetter);
+                $("#wrongAnswerContainer").append('#wrongLetters');
+
+            }
+
+
+
+
+        })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
-}
 
-findLetter();
+    gameplay();
+
+})
