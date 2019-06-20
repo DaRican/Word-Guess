@@ -1,5 +1,7 @@
 $(document).ready(function () {
 
+
+
     // Array holds all of the baseball terms available
     var terms = [
         'ace',
@@ -15,49 +17,138 @@ $(document).ready(function () {
         'cycle',
     ];
 
-    switch (terms) {
+    var randWord = terms[Math.floor(Math.random() * terms.length)];
+
+    switch (randWord) {
 
         case 'ace':
+            $('<p/>', {
+                class: "caseParagraph",
+                id: "aceParagraph"
+            }).appendTo("#hintBox");
+            $("#aceParagraph").text("Considered to be the best pitcher in the starting rotation");
+
+            console.log("case statement ace");
 
             break;
 
         case 'beanball':
 
+            $('<p/>', {
+                class: "caseParagraph",
+                id: "beanballParagraph"
+            }).appendTo("#hintBox");
+            $("#beanballParagraph").text("After one player gets hit by a pitch, other pitchers tend to get revenge for their hit teammate.");
+
+            console.log("case statement beanball");
+
             break;
 
         case 'brushback':
+
+            $('<p/>', {
+                class: "caseParagraph",
+                id: "brushbackParagraph"
+            }).appendTo("#hintBox");
+            $("#brushbackParagraph").text("Pitchers throwing a ball inside to a hitter to get him to stand further away from the plate");
+
+            console.log("case statement brushback");
 
             break;
 
         case 'cheese':
 
+            $('<p/>', {
+                class: "caseParagraph",
+                id: "cheeseParagraph"
+            }).appendTo("#hintBox");
+            $("#cheeseParagraph").text("Used to refer to a vary fast fastball being thrown to a hitter");
+
+            console.log("case statement cheese");
+
             break;
 
         case 'pickoff':
+
+            $('<p/>', {
+                class: "caseParagraph",
+                id: "pickoffParagraph"
+            }).appendTo("#hintBox");
+            $("#pickoffParagraph").text("When the pitcher throws the ball to a base where a runner is.");
+
+            console.log("case statement pickoff");
 
             break;
 
         case 'double':
 
+            $('<p/>', {
+                class: "caseParagraph",
+                id: "doubleParagraph"
+            }).appendTo("#hintBox");
+            $("#doubleParagraph").text("Batter hits the ball and ends up at second base");
+
+            console.log("case statement double");
+
             break;
 
         case 'triple':
+
+            $('<p/>', {
+                class: "caseParagraph",
+                id: "tripleParagraph"
+            }).appendTo("#hintBox");
+            $("#tripleParagraph").text("Batter hits the ball and ends up at third base");
+
+            console.log("case statement triple");
 
             break;
 
         case 'single':
 
+            $('<p/>', {
+                class: "caseParagraph",
+                id: "singleParagraph"
+            }).appendTo("#hintBox");
+            $("singleParagraph").text("Batter hits the ball and ends up at first base");
+
+            console.log("case statement single");
+
             break;
 
         case 'moonshot':
+
+            $('<p/>', {
+                class: "caseParagraph",
+                id: "moonshotParagraph"
+            }).appendTo("#hintBox");
+            $("#moonshotParagraph").text("a ball hit so high and so far that it is said to have cleared the moon");
+
+            console.log("case statement moonshot");
 
             break;
 
         case 'balk':
 
+            $('<p/>', {
+                class: "caseParagraph",
+                id: "balkParagraph"
+            }).appendTo("#hintBox");
+            $("#balkParagraph").text("When the pitcher makes an illegal move while a runner is on base");
+
+            console.log("case statement balk");
+
             break;
 
         case 'cycle':
+
+            $('<p/>', {
+                class: "caseParagraph",
+                id: "balkParagraph"
+            }).appendTo("#hintBox");
+            $("#balkParagraph").text("hitting a single, double, triple and homerun in the same game");
+
+            console.log("case statement cycle");
 
             break;
 
@@ -68,7 +159,7 @@ $(document).ready(function () {
     // Choose a random word from terms Array
     var rightLetter = [];
     var wrongLetter = [];
-    var randWord = terms[Math.floor(Math.random() * terms.length)];
+
 
     var guessRemaining = 9;
     var wins = 0;
@@ -107,7 +198,7 @@ $(document).ready(function () {
         var randWordDiv = $("#underscore");
         var randWordDiv = $("#blankGuessWord");
 
-        randWord = terms[Math.floor(Math.random() * terms.length)];
+
 
         console.log(randWord);
         var indexReplace;
@@ -217,7 +308,7 @@ $(document).ready(function () {
 
                 */
 
-                if (indices.length > 1) {
+                if (indices.length >= 1) {
 
                     guessRemaining = guessRemaining - (wrongLetter.length + rightLetter.length);
                     console.log(wrongLetter.length + rightLetter.length);
