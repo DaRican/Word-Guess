@@ -11,19 +11,33 @@ header{
 
 
 #gameBox{
-    position: relative;
+    position: absolute;
     border: 1px solid black;
     font-size: 24px;
     font-weight: bolder;
 /* why cant height do percantage value? */
-    height: 900px;
-    width: 450px;
+    height: auto;
+    width: 25%;
     
 }
 
+#hintBox {
+    float: right;
+    border: 1px solid black;
+    width: 73%;
+    height: 1028px;
+    margin: 10px;
+    padding-top: 230px;
+    font-size: 35px;
+    
+
+}
+
+
 #displayChosen{
 
-    margin: 45px;
+    margin: 70px 0px 0px 150px;
+    
 
 }
 
@@ -31,7 +45,7 @@ header{
 
     text-align: left;
     margin: 0px;
-    float: left;
+    
     height: 75px;
     width: 80%;
     
@@ -55,3 +69,10 @@ span{
     font-size: 70px;
     text-align: center;
 }
+
+.shown-letters{
+    letter-spacing: 6px;
+    padding: 10px;
+}
+
+
