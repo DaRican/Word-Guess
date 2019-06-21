@@ -2,6 +2,7 @@ $(document).ready(function () {
 
 
 
+
     // Array holds all of the baseball terms available
     var terms = [
         'ace',
@@ -110,7 +111,8 @@ $(document).ready(function () {
                 class: "caseParagraph",
                 id: "singleParagraph"
             }).appendTo("#hintBox");
-            $("singleParagraph").text("Batter hits the ball and ends up at first base");
+            $("#singleParagraph").text("Batter hits the ball and ends up at first base");
+
 
             console.log("case statement single");
 
@@ -162,6 +164,7 @@ $(document).ready(function () {
 
 
     var guessRemaining = 9;
+    var winningCount = 0;
     var wins = 0;
     var losses = 0;
 
@@ -191,6 +194,10 @@ $(document).ready(function () {
 
                 
     */
+
+
+
+
 
     function gameplay() {
 
@@ -248,9 +255,9 @@ $(document).ready(function () {
 
 
             /* 
-
+ 
                     KEYPRESS EVENT
-
+ 
             */
 
             keyPressed = event.key;
@@ -273,19 +280,19 @@ $(document).ready(function () {
             $("#lettersPressedContainer ").append()
 
             /*
-
-                    DOES THE LETTER THE USER PRESSED IN THE STRING?
-
+ 
+                    IS THE LETTER THE USER PRESSED IN THE STRING?
+ 
             */
 
             if (randWord.indexOf(keyPressed) > -1) {
 
 
                 /*
-
+ 
                         DETERMINE IF LETTER PRESSED HAS MORE
                         THAN ONE INSTANCE IN randWord
-
+ 
                 */
 
 
@@ -297,20 +304,29 @@ $(document).ready(function () {
                     }
                 }
 
-                console.log(indices);
-
-                //////////////////////////////////////////////////////////////
 
                 /*
-
+                
+                
+                                
+ 
+                console.log(indices);
+                console.log("Indices of underscores" + underscoreIndices.length)
+ 
+                //////////////////////////////////////////////////////////////
+ 
+                /*
+ 
                         randWord HAS MORE THAN ONE INSTANCE
                         OF THE LETTER PRESSED
-
+ 
                 */
 
                 if (indices.length >= 1) {
 
-                    guessRemaining = guessRemaining - (wrongLetter.length + rightLetter.length);
+
+
+                    guessRemaining = 9 - (wrongLetter.length + rightLetter.length);
                     console.log(wrongLetter.length + rightLetter.length);
                     $("#guessTracker").empty();
                     $("#guessTracker").append(guessRemaining);
@@ -338,15 +354,20 @@ $(document).ready(function () {
                     $('#blankGuessWord').empty();
                     $("#blankGuessWord").append(underScore);
 
+                    winningCount = winningCount + indices.length;
 
-                    console.log(underScore);
+
+                    console.log('please start counting' + winningCount);
+                    console.log("this is the variable that you want" + underScore);
+
+
 
 
 
                     ///////////////////////////////////////////////////////////////////////////
 
                 } else {
-                    guessRemaining = guessRemaining - (wrongLetter.length + rightLetter.length);
+                    guessRemaining = 10 - (wrongLetter.length + rightLetter.length);
                     console.log(wrongLetter.length + rightLetter.length);
                     $("#guessTracker").empty();
                     $("#guessTracker").append(guessRemaining);
@@ -373,8 +394,13 @@ $(document).ready(function () {
                     $('#blankGuessWord').empty();
                     $("#blankGuessWord").append(underScore);
 
+                    winningCount++;
+
+
 
                     console.log(underScore);
+                    console.log('please start counting' + winningCount);
+
 
                 }
 
@@ -398,7 +424,7 @@ $(document).ready(function () {
                 }).appendTo("#wrongAnswerContainer");
                 $("#wrongLetters").text(wrongLetter);
 
-                guessRemaining = guessRemaining - (wrongLetter.length + rightLetter.length);
+                guessRemaining = 10 - (wrongLetter.length + rightLetter.length);
                 console.log(wrongLetter.length + rightLetter.length);
                 $("#guessTracker").empty();
                 $("#guessTracker").append(guessRemaining);
@@ -437,6 +463,10 @@ $(document).ready(function () {
 
     }
 
+
+
     gameplay();
+
+
 
 })
