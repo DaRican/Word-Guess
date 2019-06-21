@@ -17,10 +17,11 @@ header{
 }
 
 .container{
-    z-index: 1000;
+    z-index: 0;
     height: 100%;
     width: 100%;
     background-color: aqua;
+    opacity: .8;
     
 
 }
@@ -93,10 +94,7 @@ span{
     padding: 10px;
 }
 
-div{
-    background-color: aqua;
-    opacity: .8;
-}
+
 
 
 

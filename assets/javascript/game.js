@@ -198,6 +198,7 @@ $(document).ready(function () {
 
     if (randWord.length = winningCount) {
         wins++;
+        
 
     } else {
 
