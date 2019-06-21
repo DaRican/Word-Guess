@@ -196,210 +196,246 @@ $(document).ready(function () {
     */
 
 
+    if (randWord.length = winningCount) {
+        wins++;
 
-
-
-    function gameplay() {
-
-
-        var randWordDiv = $("#underscore");
-        var randWordDiv = $("#blankGuessWord");
-
-
-
-        console.log(randWord);
-        var indexReplace;
-
-        /* 
-        
-                    UNDERSCORE VISUAL SHOWING HIDDEN LETTERS
-        
-        */
-
-        var underScore = [];
-
-
-
-
-        $('<span/>', {
-            id: 'blankGuessWord',
-            class: 'nameLater',
-        }).appendTo('#underscore');
-
-        for (var i = 0; i < randWord.length; i++) {
-
-
-            underScore.push("_");
-
-
-
-        }
-        $("#blankGuessWord").append(underScore);
-
-        console.log(underScore);
+    } else {
 
 
 
 
 
 
+        function gameplay() {
+
+
+            var randWordDiv = $("#underscore");
+            var randWordDiv = $("#blankGuessWord");
 
 
 
-
-
-
-
-
-        $("body").keyup(function (event) {
-
+            console.log(randWord);
+            var indexReplace;
 
             /* 
- 
-                    KEYPRESS EVENT
- 
+            
+                        UNDERSCORE VISUAL SHOWING HIDDEN LETTERS
+            
             */
 
-            keyPressed = event.key;
-            var guessLength = [];
-            guessLength.push(keyPressed)
-            console.log(guessLength);
-            console.log("guessLength " + guessLength.length);
-            $('<div/>', {
-                id: 'displayChosen',
+            var underScore = [];
+
+
+
+
+            $('<span/>', {
+                id: 'blankGuessWord',
                 class: 'nameLater',
-            }).appendTo('#lettersPressedContainer');
+            }).appendTo('#underscore');
 
-            /*
-            
-                    SHOW USER WHAT KEY WAS LAST PRESSED
-            
-            */
-
-            $('#displayChosen').text('"' + keyPressed + '"');
-            $("#lettersPressedContainer ").append()
-
-            /*
- 
-                    IS THE LETTER THE USER PRESSED IN THE STRING?
- 
-            */
-
-            if (randWord.indexOf(keyPressed) > -1) {
+            for (var i = 0; i < randWord.length; i++) {
 
 
-                /*
- 
-                        DETERMINE IF LETTER PRESSED HAS MORE
-                        THAN ONE INSTANCE IN randWord
- 
+                underScore.push("_");
+
+
+
+            }
+            $("#blankGuessWord").append(underScore);
+
+            console.log(underScore);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            $("body").keyup(function (event) {
+
+
+                /* 
+     
+                        KEYPRESS EVENT
+     
                 */
 
-
-                var str = randWord;
-                var indices = [];
-                for (var i = 0; i < randWord.length; i++) {
-                    if (str[i] === keyPressed) {
-                        indices.push(i);
-                    }
-                }
-
+                keyPressed = event.key;
+                var guessLength = [];
+                guessLength.push(keyPressed)
+                console.log(guessLength);
+                console.log("guessLength " + guessLength.length);
+                $('<div/>', {
+                    id: 'displayChosen',
+                    class: 'nameLater',
+                }).appendTo('#lettersPressedContainer');
 
                 /*
                 
+                        SHOW USER WHAT KEY WAS LAST PRESSED
                 
-                                
- 
-                console.log(indices);
-                console.log("Indices of underscores" + underscoreIndices.length)
- 
-                //////////////////////////////////////////////////////////////
- 
-                /*
- 
-                        randWord HAS MORE THAN ONE INSTANCE
-                        OF THE LETTER PRESSED
- 
                 */
 
-                if (indices.length >= 1) {
+                $('#displayChosen').text('"' + keyPressed + '"');
+                $("#lettersPressedContainer ").append()
+
+                /*
+     
+                        IS THE LETTER THE USER PRESSED IN THE STRING?
+     
+                */
+
+                if (randWord.indexOf(keyPressed) > -1) {
+
+
+                    /*
+     
+                            DETERMINE IF LETTER PRESSED HAS MORE
+                            THAN ONE INSTANCE IN randWord
+     
+                    */
+
+
+                    var str = randWord;
+                    var indices = [];
+                    for (var i = 0; i < randWord.length; i++) {
+                        if (str[i] === keyPressed) {
+                            indices.push(i);
+                        }
+                    }
+
+
+                    /*
+                    
+                    
+                                    
+     
+                    console.log(indices);
+                    console.log("Indices of underscores" + underscoreIndices.length)
+     
+                    //////////////////////////////////////////////////////////////
+     
+                    /*
+     
+                            randWord HAS MORE THAN ONE INSTANCE
+                            OF THE LETTER PRESSED
+     
+                    */
+
+                    if (indices.length >= 1) {
 
 
 
-                    guessRemaining = 9 - (wrongLetter.length + rightLetter.length);
-                    console.log(wrongLetter.length + rightLetter.length);
-                    $("#guessTracker").empty();
-                    $("#guessTracker").append(guessRemaining);
-                    console.log('has more than one')
+                        guessRemaining = 9 - (wrongLetter.length + rightLetter.length);
+                        console.log(wrongLetter.length + rightLetter.length);
+                        $("#guessTracker").empty();
+                        $("#guessTracker").append(guessRemaining);
+                        console.log('has more than one')
 
-                    rightLetter.push(keyPressed);
-                    console.log("right letter pushed: " + rightLetter);
-                    $('<div/>', {
-                        id: 'rightLetters',
-                        class: 'shown-letters',
+                        rightLetter.push(keyPressed);
+                        console.log("right letter pushed: " + rightLetter);
+                        $('<div/>', {
+                            id: 'rightLetters',
+                            class: 'shown-letters',
 
-                    }).appendTo("#rightAnswerContainer");
-                    $("#rightLetters").text(rightLetter);
+                        }).appendTo("#rightAnswerContainer");
+                        $("#rightLetters").text(rightLetter);
 
 
-                    console.log(randWord.indexOf(keyPressed));
+                        console.log(randWord.indexOf(keyPressed));
 
-                    for (i = 0; i < indices.length; i++) {
+                        for (i = 0; i < indices.length; i++) {
 
-                        var multipleSpot = indices[i];
-                        underScore[multipleSpot] = keyPressed;
+                            var multipleSpot = indices[i];
+                            underScore[multipleSpot] = keyPressed;
+
+                        }
+
+                        $('#blankGuessWord').empty();
+                        $("#blankGuessWord").append(underScore);
+
+                        winningCount = winningCount + indices.length;
+
+
+                        console.log('please start counting' + winningCount);
+                        console.log("this is the variable that you want" + underScore);
+
+
+
+
+
+                        ///////////////////////////////////////////////////////////////////////////
+
+                    } else {
+                        guessRemaining = 10 - (wrongLetter.length + rightLetter.length);
+                        console.log(wrongLetter.length + rightLetter.length);
+                        $("#guessTracker").empty();
+                        $("#guessTracker").append(guessRemaining);
+
+                        console.log('only has one')
+
+
+                        rightLetter.push(keyPressed);
+                        console.log("right letter pushed: " + rightLetter);
+                        $('<div/>', {
+                            id: 'rightLetters',
+                            class: 'shown-letters',
+
+                        }).appendTo("#rightAnswerContainer");
+                        $("#rightLetters").text(rightLetter);
+
+                        console.log(randWord.indexOf(keyPressed));
+
+
+
+
+
+                        underScore[randWord.indexOf(keyPressed)] = keyPressed;
+                        $('#blankGuessWord').empty();
+                        $("#blankGuessWord").append(underScore);
+
+                        winningCount++;
+
+
+
+                        console.log(underScore);
+                        console.log('please start counting' + winningCount);
+
 
                     }
 
-                    $('#blankGuessWord').empty();
-                    $("#blankGuessWord").append(underScore);
-
-                    winningCount = winningCount + indices.length;
-
-
-                    console.log('please start counting' + winningCount);
-                    console.log("this is the variable that you want" + underScore);
 
 
 
 
 
-                    ///////////////////////////////////////////////////////////////////////////
+
+
 
                 } else {
+
+
+
+                    wrongLetter.push(keyPressed);
+                    console.log("wrong letter pushed: " + wrongLetter);
+                    $('<div/>', {
+                        id: 'wrongLetters',
+                        class: 'shown-letters',
+                    }).appendTo("#wrongAnswerContainer");
+                    $("#wrongLetters").text(wrongLetter);
+
                     guessRemaining = 10 - (wrongLetter.length + rightLetter.length);
                     console.log(wrongLetter.length + rightLetter.length);
                     $("#guessTracker").empty();
                     $("#guessTracker").append(guessRemaining);
 
-                    console.log('only has one')
-
-
-                    rightLetter.push(keyPressed);
-                    console.log("right letter pushed: " + rightLetter);
-                    $('<div/>', {
-                        id: 'rightLetters',
-                        class: 'shown-letters',
-
-                    }).appendTo("#rightAnswerContainer");
-                    $("#rightLetters").text(rightLetter);
-
-                    console.log(randWord.indexOf(keyPressed));
-
-
-
-
-
-                    underScore[randWord.indexOf(keyPressed)] = keyPressed;
-                    $('#blankGuessWord').empty();
-                    $("#blankGuessWord").append(underScore);
-
-                    winningCount++;
-
-
-
-                    console.log(underScore);
-                    console.log('please start counting' + winningCount);
 
 
                 }
@@ -410,36 +446,7 @@ $(document).ready(function () {
 
 
 
-
-
-            } else {
-
-
-
-                wrongLetter.push(keyPressed);
-                console.log("wrong letter pushed: " + wrongLetter);
-                $('<div/>', {
-                    id: 'wrongLetters',
-                    class: 'shown-letters',
-                }).appendTo("#wrongAnswerContainer");
-                $("#wrongLetters").text(wrongLetter);
-
-                guessRemaining = 10 - (wrongLetter.length + rightLetter.length);
-                console.log(wrongLetter.length + rightLetter.length);
-                $("#guessTracker").empty();
-                $("#guessTracker").append(guessRemaining);
-
-
-
-            }
-
-
-
-
-
-
-
-        })
+            })
 
 
 
@@ -460,12 +467,13 @@ $(document).ready(function () {
 
 
 
+
+        }
 
     }
 
-
-
     gameplay();
+
 
 
 

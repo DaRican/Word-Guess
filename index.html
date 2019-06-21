@@ -21,35 +21,37 @@
     </header>
 
 
+    <div class="container">
+        <div id="gameBox">
+            <div id="underscore"></div>
+            <div id="scoreBoard">
+                <ul>
+                    <li>
+                        Guesses Remaining: <div id='guessTracker' class="tracker"></div>
+                    </li>
+                    <li>
+                        Wins: <div id='winsTracker' class="tracker"></div>
+                    </li>
+                    <li>
+                        Losses: <div id='lossTracker' class="tracker"></div>
 
-    <div id="gameBox">
-        <div id="underscore"></div>
-        <div id="scoreBoard">
-            <ul>
-                <li>
-                    Guesses Remaining: <div id='guessTracker' class="tracker"></div>
-                </li>
-                <li>
-                    Wins: <div id='winsTracker' class="tracker"></div>
-                </li>
-                <li>
-                    Losses: <div id='lossTracker' class="tracker"></div>
+                    </li>
+                </ul>
 
-                </li>
-            </ul>
-
+            </div>
+            <br>
+            <br>
+            <br>
+            <div id="rightAnswerContainer" class='scoreKeep'>Right Letters:</div>
+            <div id="wrongAnswerContainer" class='scoreKeep'>Wrong Letters:</div>
+            <div id="lettersPressedContainer" class='scoreKeep'>Last Letter Pressed:</div>
         </div>
-        <br>
-        <br>
-        <br>
-        <div id="rightAnswerContainer" class='scoreKeep'>Right Letters:</div>
-        <div id="wrongAnswerContainer" class='scoreKeep'>Wrong Letters:</div>
-        <div id="lettersPressedContainer" class='scoreKeep'>Last Letter Pressed:</div>
+
+        <div id="hintBox">
+            Hint Box:
+        </div>
     </div>
 
-    <div id="hintBox">
-        Hint Box:
-    </div>
 
 
     <script src="./assets/javascript/game.js"></script>

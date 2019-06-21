@@ -1,7 +1,7 @@
 
 body{
     background-image: url('assets/images/yankee_stadium.jpg');
-    opacity: 0.7;
+    
     
 }
 
@@ -13,6 +13,15 @@ header{
     font-size: 20px;
     text-align: center;
     margin: 0 auto;
+
+}
+
+.container{
+    z-index: 1000;
+    height: 100%;
+    width: 100%;
+    background-color: aqua;
+    
 
 }
 
@@ -86,8 +95,9 @@ span{
 
 div{
     background-color: aqua;
-    opacity: 1;
+    opacity: .8;
 }
+
 
 
 @media only screen and (max-width: 900px) {
