@@ -28,16 +28,14 @@ header{
 
 
 
-#gameBox{
+#gameBox {
     position: absolute;
     border: 1px solid black;
     font-size: 24px;
     font-weight: bolder;
-/* why cant height do percantage value? */
     height: auto;
     width: 40%;
-    
-    
+    background-color: aqua;
 }
 
 #hintBox {
@@ -48,6 +46,7 @@ header{
     margin: 10px;
     padding-top: 230px;
     font-size: 35px;
+    background-color: aqua;
     
 
 }
